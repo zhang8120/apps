@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=1"/>
+		<title></title>
+		<link rel="stylesheet" href="js/dist/css/swiper.css" />
+		<link rel="stylesheet" href="css/font_o3btcfsngewpcik9/iconfont.css" />
+		<link rel="stylesheet" href="js/dist/css/animate.min.css" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/dist/js/zepto.min.js"></script>
+		<script src="js/dist/js/swiper.jquery.js"></script>
+		<script src="js/dist/js/swiper.js"></script>
+		<script src="js/APP.js"></script>
+		<!--<script src="js/dist/js/swiper.animate1.0.2.min.js"></script>-->
+		<!--<script src="js/dist/jquery.fullpage.js"></script>-->
+
+	</head>
+	<body>
+ 	  <header>
+ 	  	<div class="newname"></div>
+ 	  	<div class="sousuo iconfont">&#xe600;</div>
+ 	  </header>
+ 	  <!--<nav >-->
+ 	  	<!--<div class="navbox">-->
+ 	  		<!--<div class="swiper-container">
+ 	  			<div class="swiper-wrapper">
+	 	  			<a href="" class="swiper-slide active">推荐</a>
+		 	  		<a href="" class="swiper-slide">视频</a>
+		 	  		<a href="" class="swiper-slide">奥运会</a>
+		 	  		<a href="" class="swiper-slide">本地</a>
+		 	  		<a href="" class="swiper-slide">社会</a>
+		 	  		<a href=""><i>◇</i></a>
+ 	  			</div>
+ 	  		</div>.
+ 	  	</div>-->
+<div class="swiper-container" id="swiper-container2">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide active-nav">
+			推荐</div>
+		<div class="swiper-slide">
+			视屏</div>
+		<div class="swiper-slide">
+			奥运会</div>
+		<div class="swiper-slide">
+			本地</div>
+		<div class="swiper-slide">
+			社会</div>
+	</div>
+</div>
+ 	  <!--</nav>-->
+<div class="swiper-container swiper-container-horizontal" id="swiper-container3">
+  <div class="swiper-wrapper">
+<!--  	第一栏目-->
+    <div class="swiper-slide swiper-slide-active">
+    	<!--banner-->
+    	<div class="headslide">
+    		<div class="swiper-container "id="swiper-container1">
+    			<div class="swiper-wrapper">
+		    		<a href="show.html" class="swiper-slide">
+		    			<img src="img/t1_07.png">
+		    		</a>
+		    		<a href="show.html" class="swiper-slide">
+		    			<img src="img/t1_07.png">
+		    		</a>
+		    		<a href="show.html" class="swiper-slide">
+		    			<img src="img/t1_07.png">
+		    		</a>
+    			</div>
+    		</div>
+    	</div>
+ <!--/*内容列表*/-->
+	<div class="list">
+		<div class="listbox">
+			<div class="imgs">
+				<img src="img/smallimg1_11.png" alt="" />
+			</div>
+			<div class="list-right">
+				<p>习近平就巴基斯坦重大恐袭事件向巴总统致慰问电</p>
+				<span class="times">18小时之前</span>
+				<span class="looks">2</span>
+			</div>
+		</div>
+			<div class="listbox">
+			<div class="imgs">
+				<img src="img/smallimg1_14.png" alt="" />
+			</div>
+			<div class="list-right">
+				<p>北京积分落户新政:在京连续缴纳社会保险需满7年p>
+				<span class="times">18小时之前</span>
+				<span class="looks">2</span>
+			</div>
+		</div>
+			<div class="listbox">
+			<div class="imgs">
+				<img src="img/smallimg3_16.png" alt="" />
+			</div>
+			<div class="list-right">
+				<p>中国渔船与希腊货船在钓鱼岛相撞 日巡逻艇救6人</p>
+				<span class="times">18小时之前</span>
+				<span class="looks">2</span>
+			</div>
+		</div>
+	</div>
+	</div>
+  	<div class="swiper-slide swiper-slide-next">视频</div>
+  	<div class="swiper-slide swiper-slide-next">奥运会</div>  
+  	<div class="swiper-slide swiper-slide-next">本地</div>  
+  </div>
+  </div>
+  
+  <div class="bottoms">
+  	<div class="bottom1"><a href="" class=" iconfont active1">&#xe63a;<br>新闻</a></div>
+  	<div class="bottom2"><a href="" class=" iconfont">&#xe616;<br />直播</a></div>
+  	<div class="bottom3"><a href="" class=" iconfont">&#xe684;<br />话题</a></div>
+  	<div class="bottom4"><a href="" class=" iconfont">&#xe61e;<br />我</a></div>
+  </div>
+  
+</div>
+	</body>
+
+<script>
+	var mySwiper = new Swiper('#swiper-container1', {
+	pagination : '#swiper-pagination1',
+})
+	 var mySwiper2 = new Swiper('#swiper-container2',{
+watchSlidesProgress : true,
+watchSlidesVisibility : true,
+slidesPerView :5,
+onTap: function(){
+			mySwiper3.slideTo( mySwiper2.clickedIndex)
+		}
+})
+var mySwiper3 = new Swiper('#swiper-container3',{
+
+onSlideChangeStart: function(){
+			updateNavPosition()
+		}
+
+})
+
+function updateNavPosition(){
+		$('#swiper-container2 .active-nav').removeClass('active-nav')
+		var activeNav = $('#swiper-container2 .swiper-slide').eq(mySwiper3.activeIndex).addClass('active-nav');
+
+
+		if (!activeNav.hasClass('swiper-slide-visible')) {
+console.log(1);
+			if (activeNav.index()>mySwiper2.activeIndex) {
+console.log(2);
+				var thumbsPerNav = Math.floor(mySwiper2.width/activeNav.width())-1
+				mySwiper2.slideTo(activeNav.index()-thumbsPerNav)
+			}
+			else {
+console.log(3);
+				mySwiper2.slideTo(activeNav.index())
+			}	
+		}
+}
+</script>
+</html>
